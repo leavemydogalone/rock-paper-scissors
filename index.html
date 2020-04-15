@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+<script>
+
+function computerPlay () {
+    
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+        }
+    let choice = getRndInteger(1, 4);
+    function assign() {
+        if (choice == 1) {
+            return "Rock";
+        } else if (choice == 2) {
+            return "Paper";
+        } else {
+            return "Scissors";
+        }
+    }
+    return assign ();
+}
+
+console.log(computerPlay())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
