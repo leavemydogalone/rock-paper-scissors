@@ -9,7 +9,8 @@
 
 <script>
 
-function computerPlay () {
+
+function computerSelection() {
     
     function getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
@@ -17,17 +18,32 @@ function computerPlay () {
     let choice = getRndInteger(1, 4);
     function assign() {
         if (choice == 1) {
-            return "Rock";
+            return "rock";
         } else if (choice == 2) {
-            return "Paper";
+            return "paper";
         } else {
-            return "Scissors";
+            return "scissors";
         }
     }
     return assign ();
 }
 
-console.log(computerPlay())
+let playerInput = 'rock';
+playerSelection = playerInput.toLowerCase();
+
+
+function playRound(playerSelection, computerSelection) {
+    if(playerSelection == 'rock' &&  computerSelection == 'scissors' || playerSelection =='scissors' && computerSelection == 'paper' || playerSelection == 'paper' && computerSelection == 'rock') {
+        return "You win! " + playerSelection + ' beats ' + computerSelection + '!';   
+    } else if (playerSelection == 'rock' &&  computerSelection == 'rock' || playerSelection =='scissors' && computerSelection == 'scissors' || playerSelection == 'paper' && computerSelection == 'paper') {
+        return "You both chose the same thing. Its a tie!";
+    } else {
+        return "You lose! " + computerSelection + " beats " + playerSelection;
+    }
+}
+console.log(playRound(playerSelection, computerSelection()));
+//  look up why they would become undefined in the function
+
 
 
 
