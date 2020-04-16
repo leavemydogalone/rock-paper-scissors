@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+ To begin, enter <strong>game();</strong> into the console.
 </head>
 
 <body>
@@ -56,13 +56,16 @@ function playRound(playerPick, computerPick) {
 }
 
 
-let totalWin = 0;
-let totalLoss = 0;
-let totalTie = 0;
 
+let totalWin = 0;
+let totalLoss = 0; 
+let totalTie = 0;
 
  
 function game() {
+   
+   
+   
     playRound(playerSelection(), computerSelection());
     playRound(playerSelection(), computerSelection());
     playRound(playerSelection(), computerSelection());
@@ -72,18 +75,18 @@ function game() {
     let score = `Wins = ${totalWin} : losses = ${totalLoss}`;
 
     if (totalWin + totalLoss + totalTie !== 5) {
-        return 
+        return; 
     } else if (totalWin > totalLoss) {
         console.log(score);
         return "You win!";
-        
-    } else {
+    } else if (totalWin < totalLoss) {
         console.log(score);
         return "You lose!"
-        
+    } else if (totalLoss == totalWin) {
+        console.log(score);
+        return "It's a tie!";
     }
-
-    
+  
 }
 
      
