@@ -39,21 +39,35 @@ let playerInput = 'rock';
 playerSelection = capitalize(playerInput);
 
 
+
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == 'Rock' &&  computerSelection == 'Scissors' || playerSelection =='Scissors' && computerSelection == 'Paper' || playerSelection == 'Paper' && computerSelection == 'Rock') {
-        return [win +1, "You win! " + playerSelection + ' beats ' + computerSelection + '!'];   
+        return "You win! " + playerSelection + ' beats ' + computerSelection + '!';   
     } else if (playerSelection == 'Rock' &&  computerSelection == 'Rock' || playerSelection =='Scissors' && computerSelection == 'Scissors' || playerSelection == 'Paper' && computerSelection == 'Paper') {
         return "You both chose the same thing. Its a tie!";
     } else {
-        return [loss - 1, "You lose! " + computerSelection + " beats " + playerSelection + '!'];
+        return "You lose! " + computerSelection + " beats " + playerSelection + '!';
     }
 }
-var win = 0;
-var loss = 0;
 
-var score = playRound()
+function determineScore() {
+    let firstSeven = playRound(playerSelection, computerSelection()).slice(5,6);
+    if (firstSeven == "l") {
+        return totalLoss += 1;
+    } else if (firstSeven = "w") {
+        return totalWin += 1;
+    } else {
+        return totalTie += 1;
+    }
+} 
+console.log(determineScore())
 
-console.log(score)
+var totalWin = 0;
+var totalLoss = 0;
+var totalTie = 0;
+
+
+
 
 
 
