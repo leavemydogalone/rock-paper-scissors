@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+<script>
+
+function capitalize (string) {
+    let firstLetter = string.charAt(0);
+    let firstLetterCap = firstLetter.toUpperCase();
+    let restOfSentence = string.slice(1);
+    let restOfSentenceLower = restOfSentence.toLowerCase();
+    return (firstLetterCap + restOfSentenceLower);
+}
+
+function computerSelection() {
+    
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+        }
+    let choice = getRndInteger(1, 4);
+    function assign() {
+        if (choice == 1) {
+            return "Rock";
+        } else if (choice == 2) {
+            return "Paper";
+        } else {
+            return "Scissors";
+        }
+    }
+    return assign ();
+}
+
+let playerInput = prompt('Rock, Paper, or Scissors');
+playerSelection = capitalize(playerInput);
+
+
+
+function playRound(playerSelection, computerSelection) {
+    if(playerSelection == 'Rock' &&  computerSelection == 'Scissors' || playerSelection =='Scissors' && computerSelection == 'Paper' || playerSelection == 'Paper' && computerSelection == 'Rock') {
+        result = 'win';    
+    } else if (playerSelection == 'Rock' &&  computerSelection == 'Rock' || playerSelection =='Scissors' && computerSelection == 'Scissors' || playerSelection == 'Paper' && computerSelection == 'Paper') {
+        result = 'tie'; 
+    } else {
+        result = 'lose'; 
+    }
+    return result;
+
+}
+
+
+
+function game() {
+    let roundResult = playRound(playerSelection, computerSelection());
+    let totalWin = 0;
+    let totalLoss = 0;
+    let totalTie = 0;
+    
+    function round 
+    round();
+    round();
+    round();
+    round();
+    round();
+    }
+    
+
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

@@ -35,38 +35,69 @@ function computerSelection() {
     return assign ();
 }
 
-let playerInput = 'rock';
-playerSelection = capitalize(playerInput);
-
-
-
-function playRound(playerSelection, computerSelection) {
-    if(playerSelection == 'Rock' &&  computerSelection == 'Scissors' || playerSelection =='Scissors' && computerSelection == 'Paper' || playerSelection == 'Paper' && computerSelection == 'Rock') {
-        return "You win! " + playerSelection + ' beats ' + computerSelection + '!';   
-    } else if (playerSelection == 'Rock' &&  computerSelection == 'Rock' || playerSelection =='Scissors' && computerSelection == 'Scissors' || playerSelection == 'Paper' && computerSelection == 'Paper') {
-        return "You both chose the same thing. Its a tie!";
-    } else {
-        return "You lose! " + computerSelection + " beats " + playerSelection + '!';
-    }
+function playerSelection() {
+    let playerChoice = prompt('Rock, Paper, or Scissors?');
+    return capitalize(playerChoice);
 }
 
-function determineScore() {
-    let firstSeven = playRound(playerSelection, computerSelection()).slice(5,6);
-    if (firstSeven == "l") {
-        return totalLoss += 1;
-    } else if (firstSeven = "w") {
-        return totalWin += 1;
+
+function playRound(playerPick, computerPick) {
+    if(playerPick == 'Rock' &&  computerPick == 'Scissors' || playerPick =='Scissors' && computerPick == 'Paper' || playerPick == 'Paper' && computerPick == 'Rock') {
+        totalWin += 1;
+        return alert("You win! " + playerPick + ' beats ' + computerPick + '!');   
+    } else if (playerPick == 'Rock' &&  computerPick == 'Rock' || playerPick =='Scissors' && computerPick == 'Scissors' || playerPick == 'Paper' && computerPick == 'Paper') {
+        totalTie += 1;
+        return alert("You both chose the same thing. Its a tie!");
     } else {
-        return totalTie += 1;
+        totalLoss += 1;
+        return alert("You lose! " + computerPick + " beats " + playerPick + '!');
     }
-} 
-console.log(determineScore())
 
-var totalWin = 0;
-var totalLoss = 0;
-var totalTie = 0;
+}
 
 
+let totalWin = 0;
+let totalLoss = 0;
+let totalTie = 0;
+
+
+ 
+function game() {
+    playRound(playerSelection(), computerSelection());
+    playRound(playerSelection(), computerSelection());
+    playRound(playerSelection(), computerSelection());
+    playRound(playerSelection(), computerSelection());
+    playRound(playerSelection(), computerSelection());
+    
+    let score = `Wins = ${totalWin} : losses = ${totalLoss}`;
+
+    if (totalWin + totalLoss + totalTie !== 5) {
+        return 
+    } else if (totalWin > totalLoss) {
+        console.log(score);
+        return "You win!";
+        
+    } else {
+        console.log(score);
+        return "You lose!"
+        
+    }
+
+    
+}
+
+     
+    
+    
+    
+    
+     
+    
+
+
+ 
+    
+   
 
 
 
