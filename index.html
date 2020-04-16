@@ -41,15 +41,21 @@ playerSelection = capitalize(playerInput);
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == 'Rock' &&  computerSelection == 'Scissors' || playerSelection =='Scissors' && computerSelection == 'Paper' || playerSelection == 'Paper' && computerSelection == 'Rock') {
-        return "You win! " + playerSelection + ' beats ' + computerSelection + '!';   
+        return [win +1, "You win! " + playerSelection + ' beats ' + computerSelection + '!'];   
     } else if (playerSelection == 'Rock' &&  computerSelection == 'Rock' || playerSelection =='Scissors' && computerSelection == 'Scissors' || playerSelection == 'Paper' && computerSelection == 'Paper') {
         return "You both chose the same thing. Its a tie!";
     } else {
-        return "You lose! " + computerSelection + " beats " + playerSelection + '!';
+        return [loss - 1, "You lose! " + computerSelection + " beats " + playerSelection + '!'];
     }
 }
-console.log(playRound(playerSelection, computerSelection()));
-//  look up why they would become undefined in the function
+var win = 0;
+var loss = 0;
+
+var score = playRound()
+
+console.log(score)
+
+
 
 
 
