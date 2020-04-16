@@ -9,6 +9,13 @@
 
 <script>
 
+function capitalize (string) {
+    let firstLetter = string.charAt(0);
+    let firstLetterCap = firstLetter.toUpperCase();
+    let restOfSentence = string.slice(1);
+    let restOfSentenceLower = restOfSentence.toLowerCase();
+    return (firstLetterCap + restOfSentenceLower);
+}
 
 function computerSelection() {
     
@@ -18,27 +25,27 @@ function computerSelection() {
     let choice = getRndInteger(1, 4);
     function assign() {
         if (choice == 1) {
-            return "rock";
+            return "Rock";
         } else if (choice == 2) {
-            return "paper";
+            return "Paper";
         } else {
-            return "scissors";
+            return "Scissors";
         }
     }
     return assign ();
 }
 
 let playerInput = 'rock';
-playerSelection = playerInput.toLowerCase();
+playerSelection = capitalize(playerInput);
 
 
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection == 'rock' &&  computerSelection == 'scissors' || playerSelection =='scissors' && computerSelection == 'paper' || playerSelection == 'paper' && computerSelection == 'rock') {
+    if(playerSelection == 'Rock' &&  computerSelection == 'Scissors' || playerSelection =='Scissors' && computerSelection == 'Paper' || playerSelection == 'Paper' && computerSelection == 'Rock') {
         return "You win! " + playerSelection + ' beats ' + computerSelection + '!';   
-    } else if (playerSelection == 'rock' &&  computerSelection == 'rock' || playerSelection =='scissors' && computerSelection == 'scissors' || playerSelection == 'paper' && computerSelection == 'paper') {
+    } else if (playerSelection == 'Rock' &&  computerSelection == 'Rock' || playerSelection =='Scissors' && computerSelection == 'Scissors' || playerSelection == 'Paper' && computerSelection == 'Paper') {
         return "You both chose the same thing. Its a tie!";
     } else {
-        return "You lose! " + computerSelection + " beats " + playerSelection;
+        return "You lose! " + computerSelection + " beats " + playerSelection + '!';
     }
 }
 console.log(playRound(playerSelection, computerSelection()));
